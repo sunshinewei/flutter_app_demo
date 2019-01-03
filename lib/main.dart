@@ -21,10 +21,122 @@ class MyApp extends StatelessWidget {
         ),
         title: Text('标题'),
       ),
-      body: TestTextRich(),
+      body: TestRow(),
     );
   }
 }
+
+class TestStack extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new Stack(
+      children: <Widget>[
+        Text(
+          "文本控件1.1",
+          textAlign: TextAlign.left,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            fontStyle: FontStyle.italic,
+            color: Colors.yellow,
+          ),
+        ),
+
+      ],
+    );
+  }
+
+}
+
+
+class TestRow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Row(
+
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+
+      children: <Widget>[
+        Expanded(
+          child: Text(
+            "文本控件1.1",
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontStyle: FontStyle.italic,
+              color: Colors.yellow,
+            ),
+          ),
+        ),
+        Expanded(
+            child: Stack(
+              alignment: Alignment(100, 200),
+              fit: StackFit.expand,
+              children: <Widget>[
+                Text(
+                  "文本控件1.1.1",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.green,
+                  ),
+                ),
+                new Opacity(
+                  opacity: 0.3,
+                  child: new Container(
+                    width: 200.0,
+                    height: 200.0,
+                    color: Colors.red,
+                  ),
+                ),
+                new Opacity(
+                  opacity: 0.5,
+                  child: new Container(
+                    width: 200.0,
+                    height: 200.0,
+                    color: Colors.yellow,
+                  ),
+                ),
+
+              ],
+            )
+        ),
+        Expanded(
+          child: Text(
+            "文本控件1.3",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontStyle: FontStyle.italic,
+              color: Colors.red,
+            ),
+          ),
+        ),
+        Expanded(
+          child: Text(
+            "文本控件1.4",
+            textAlign: TextAlign.left,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              fontStyle: FontStyle.italic,
+              color: Colors.green,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+}
+
 
 class TestText extends StatelessWidget {
   Paint mPaint;
@@ -104,10 +216,6 @@ class TestTextRich extends StatelessWidget {
       textAlign: TextAlign.center,
     );
   }
-
-}
-
-class TestGestureDetector extends GestureDetector {
 }
 
 
