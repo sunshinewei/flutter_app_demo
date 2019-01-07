@@ -35,6 +35,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+  - images/icon_login_bg.jpg
 
   # To add assets to your application, add an assets section, like this:
 
@@ -67,6 +69,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
-  flutter:
-   assets:
-   - images/icon_login_bg.jpg

@@ -13,27 +13,155 @@ class LoginApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      body: new LoginView(),
+        backgroundColor: Colors.white70,
+        body: new SingleChildScrollView(
+          child: new LoginView(),
+        )
     );
+  }
+}
+
+class TestGrideView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return GridView.count(
+      crossAxisCount: 2,
+      padding: EdgeInsets.all(16.0),
+//      childAspectRatio: 8.0 / 10.0,
+      // TODO: Build a grid of cards (102)
+      children: <Widget>[Card(
+          child: new Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Text("Hello world"),
+          )
+      )
+      ],);
   }
 
 }
 
+
 //登录界面
 class LoginView extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      padding: const EdgeInsets.all(55),
+      child: Column(
+        children: <Widget>[
+          SizedBox(height: 50,),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Member Login',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.black45,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ]),
+          Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('会员登录',
+                  textAlign: TextAlign.right,
+                  style: TextStyle(
+                    fontSize: 25,
+                    height: 1.5,
+                    color: Colors.black45,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ]),
 
-      decoration: BoxDecoration(
-          image: DecorationImage(image: AssetImage('images/icon_login_bg.jpg'),)
+          SizedBox(height: 120),
+          new inputEdtextNameWiget(),
+          SizedBox(height: 20,),
+          new inputEdtextPassWordWiget(),
+          SizedBox(height: 30,),
+          new loginButtonWiget(),
+        ],
+      ),
+
+    );
+  }
+}
+
+class inputEdtextNameWiget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new SizedBox(
+      child: new Container(
+        padding: EdgeInsets.fromLTRB(20, 2, 8, 2),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.black12,
+        ),
+        alignment: Alignment.center,
+        child: TextField(
+          maxLines: 1,
+          decoration: InputDecoration(
+            hintText: '用户名',
+            border: InputBorder.none,
+          ),
+        ),
       ),
     );
   }
+}
 
+class inputEdtextPassWordWiget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new SizedBox(
+      child: new Container(
+        padding: EdgeInsets.fromLTRB(20, 2, 8, 2),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.black12,
+        ),
+        alignment: Alignment.center,
+        child: TextField(
+          maxLines: 1,
+          decoration: InputDecoration(
+            hintText: '密码',
+            border: InputBorder.none,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class loginButtonWiget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new SizedBox(
+      child: new Container(
+        padding: EdgeInsets.fromLTRB(2, 15, 2, 15),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          color: Colors.deepOrangeAccent,
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          '登录',
+          textAlign: TextAlign.center,
+          style: TextStyle(letterSpacing: 20,
+              fontWeight: FontWeight.bold,
+              color: Colors.white70),
+        ),
+
+      ),
+    );
+  }
 }
 
 
