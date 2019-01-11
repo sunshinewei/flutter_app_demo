@@ -108,6 +108,7 @@ class inputEdtextNameWiget extends StatelessWidget {
           decoration: InputDecoration(
             hintText: '用户名',
             border: InputBorder.none,
+
           ),
         ),
       ),
