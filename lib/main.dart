@@ -15,11 +15,71 @@ class LoginApp extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.white70,
         body: new SingleChildScrollView(
-          child: new LoginView(),
+//          child: new LoginView(),
+          child: TestStatefulWidget(),
         )
     );
   }
 }
+
+
+class TestStatefulWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => TestWidget();
+}
+
+class TestWidget extends State<TestStatefulWidget> {
+  bool active;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    active = false;
+  }
+
+  void _halde(bool newActive) {
+    setState(() {
+      active = newActive;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new Container(
+      child: new TestChildrenWidget(
+        active: active,
+        onChanged: _halde,
+      ),
+    );
+  }
+}
+
+
+class TestChildrenWidget extends StatelessWidget{
+  bool active;
+  ValueChanged<bool> onChanged;
+  TestChildrenWidget({Key key,this.active:false,@required this.onChanged}):super(key:key);
+  void _haldleTab(){
+    onChanged(!active);
+  }
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new GestureDetector(
+      onTap: _haldleTab,
+      child: new Container(
+        child: Text(
+          active ? "hello world1" : "hello world hello world",
+          style: TextStyle(fontSize: 100),
+        ),
+      ),
+    );
+  }
+}
+
+
 
 class TestGrideView extends StatelessWidget {
   @override
@@ -77,7 +137,6 @@ class LoginView extends StatelessWidget {
                   ),
                 ),
               ]),
-
           SizedBox(height: 120),
           new inputEdtextNameWiget(),
           SizedBox(height: 20,),
@@ -86,7 +145,6 @@ class LoginView extends StatelessWidget {
           new loginButtonWiget(),
         ],
       ),
-
     );
   }
 }
@@ -108,7 +166,6 @@ class inputEdtextNameWiget extends StatelessWidget {
           decoration: InputDecoration(
             hintText: '用户名',
             border: InputBorder.none,
-
           ),
         ),
       ),
@@ -144,22 +201,28 @@ class loginButtonWiget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new SizedBox(
-      child: new Container(
-        padding: EdgeInsets.fromLTRB(2, 15, 2, 15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          color: Colors.deepOrangeAccent,
-        ),
-        alignment: Alignment.center,
-        child: Text(
-          '登录',
-          textAlign: TextAlign.center,
-          style: TextStyle(letterSpacing: 20,
-              fontWeight: FontWeight.bold,
-              color: Colors.white70),
-        ),
+    return GestureDetector(
 
+      onTapDown: (TapDownDetails topDownDetails) {
+
+      },
+      child: new SizedBox(
+        child: new Container(
+          padding: EdgeInsets.fromLTRB(2, 15, 2, 15),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            color: Colors.deepOrangeAccent,
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            '登录',
+            textAlign: TextAlign.center,
+            style: TextStyle(letterSpacing: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.white70),
+          ),
+
+        ),
       ),
     );
   }
@@ -183,7 +246,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 
 class TestStack extends StatelessWidget {
   @override
@@ -281,14 +343,11 @@ class TestRow extends StatelessWidget {
                 ),
 
                 new Opacity(
-                  opacity
-                      : 0.5,
+                  opacity: 0.5,
                   child: new Container(
-                    width:
-                    200.0,
+                    width: 200.0,
                     height: 200.0,
-                    color: Colors.
-                    yellow,
+                    color: Colors.yellow,
                   ),
                 ),
 
@@ -304,11 +363,9 @@ class TestRow extends StatelessWidget {
             style: TextStyle
               (
               fontWeight: FontWeight.bold,
-              fontSize: 20
-              ,
+              fontSize: 20,
               fontStyle: FontStyle.italic,
-              color: Colors
-                  .red,
+              color: Colors.red,
             ),
           ),
         ),
@@ -316,24 +373,12 @@ class TestRow extends StatelessWidget {
           (
           child: Text(
             "文本控件1.4",
-            textAlign
-                : TextAlign.left,
+            textAlign: TextAlign.left,
             style: TextStyle(
-              fontWeight
-                  : FontWeight.bold,
+              fontWeight: FontWeight.bold,
               fontSize: 20,
-              fontStyle
-                  :
-              FontStyle
-                  .
-              italic
-              ,
-              color
-                  :
-              Colors
-                  .
-              green
-              ,
+              fontStyle: FontStyle.italic,
+              color: Colors.green,
             )
             ,
           )
