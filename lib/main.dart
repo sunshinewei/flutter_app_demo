@@ -22,8 +22,17 @@ class LoginApp extends StatelessWidget {
   }
 }
 
+class TestPointer extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return new GestureDetector();
+  }
+}
+
 
 class TestStatefulWidget extends StatefulWidget {
+
   @override
   State<StatefulWidget> createState() => TestWidget();
 }
@@ -56,14 +65,17 @@ class TestWidget extends State<TestStatefulWidget> {
   }
 }
 
+class TestChildrenWidget extends StatelessWidget {
+  final bool active;
+  final ValueChanged<bool> onChanged;
 
-class TestChildrenWidget extends StatelessWidget{
-  bool active;
-  ValueChanged<bool> onChanged;
-  TestChildrenWidget({Key key,this.active:false,@required this.onChanged}):super(key:key);
-  void _haldleTab(){
+  TestChildrenWidget({Key key, this.active: false, @required this.onChanged})
+      :super(key: key);
+
+  void _haldleTab() {
     onChanged(!active);
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -78,7 +90,6 @@ class TestChildrenWidget extends StatelessWidget{
     );
   }
 }
-
 
 
 class TestGrideView extends StatelessWidget {
@@ -98,10 +109,7 @@ class TestGrideView extends StatelessWidget {
       )
       ],);
   }
-
 }
-
-
 //登录界面
 class LoginView extends StatelessWidget {
   @override
@@ -138,18 +146,18 @@ class LoginView extends StatelessWidget {
                 ),
               ]),
           SizedBox(height: 120),
-          new inputEdtextNameWiget(),
+          new InputEdtextNameWiget(),
           SizedBox(height: 20,),
-          new inputEdtextPassWordWiget(),
+          new InputEdtextPassWordWiget(),
           SizedBox(height: 30,),
-          new loginButtonWiget(),
+          new LoginButtonWiget(),
         ],
       ),
     );
   }
 }
 
-class inputEdtextNameWiget extends StatelessWidget {
+class InputEdtextNameWiget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -173,7 +181,7 @@ class inputEdtextNameWiget extends StatelessWidget {
   }
 }
 
-class inputEdtextPassWordWiget extends StatelessWidget {
+class InputEdtextPassWordWiget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -197,12 +205,11 @@ class inputEdtextPassWordWiget extends StatelessWidget {
   }
 }
 
-class loginButtonWiget extends StatelessWidget {
+class LoginButtonWiget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return GestureDetector(
-
       onTapDown: (TapDownDetails topDownDetails) {
 
       },
@@ -221,7 +228,6 @@ class loginButtonWiget extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 color: Colors.white70),
           ),
-
         ),
       ),
     );
@@ -263,13 +269,10 @@ class TestStack extends StatelessWidget {
             color: Colors.yellow,
           ),
         ),
-
       ],
     );
   }
-
 }
-
 
 class TestContainer extends StatelessWidget {
   @override
@@ -321,8 +324,7 @@ class TestRow extends StatelessWidget {
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
                 fontStyle: FontStyle.italic,
-                color: Colors.
-                green,
+                color: Colors.green,
               )
           ),
         ),
@@ -394,15 +396,12 @@ class TestRow extends StatelessWidget {
 
 
 class TestText extends StatelessWidget {
-  Paint mPaint;
+  final Paint mPaint = new Paint();
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    mPaint = new Paint();
-
     mPaint.color = Colors.yellow;
-
     return Text(
       'hello world hello world hello world hello world hello world hello world',
       textAlign: TextAlign.left,
